@@ -1,0 +1,112 @@
+@mixin flex( $display, $alignitems, $justifycontent,$flexdirection ) { 
+    display:$display;
+    align-items: $alignitems;
+    justify-content: $justifycontent;
+    flex-direction: $flexdirection;
+}
+$width:100%;
+$Unit5px:5px;
+$unit10px:10px;
+.header
+{
+    @include flex($display:flex,$alignitems:center,$justifycontent:start,$flexdirection:row);
+    background-color: lightgray;
+    height: 65px;
+    
+}
+.logo
+{
+    margin-left: 158px;
+    margin-top: 10px;
+    @include flex($display:flex,$alignitems:center,$justifycontent:start,$flexdirection:row);
+}
+.image
+{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 7px;
+}
+.error
+{
+    color: red;
+    font-style: italic;
+}
+.noInput
+{
+    cursor: not-allowed;
+}
+.welcome
+{
+    @include flex($display:flex,$alignitems:center,$justifycontent:center,$flexdirection:column);
+    padding-top: 50px;
+}
+.pointer
+{
+    cursor: pointer;
+}
+h1{
+    font-family: 'Oswald', sans-serif !important;
+    font-size: 25px;
+}
+.loginForm
+{
+    @include flex($display:flex,$alignitems:center,$justifycontent:none,$flexdirection:column);
+}
+.main
+{
+    background-color: lightcyan;
+    min-height: $width;
+    @include flex($display:flex,$alignitems:none,$justifycontent:center,$flexdirection:row);
+}
+.logoImage {
+    -webkit-animation: action 1s infinite  alternate;
+    animation: action 1s infinite  alternate;
+}
+@-webkit-keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+@keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+.LoginContainer
+{
+    width: 80%;
+    min-height: $width;
+    @include flex($display:flex,$alignitems:none,$justifycontent:center,$flexdirection:row);
+    padding-top: 20px;
+    background-color: lightcyan;
+    .row
+    {
+        margin: 10px 0 10px 0px;
+        width: 100%;
+        @include flex($display:flex,$alignitems:center,$justifycontent:center,$flexdirection:column);
+    }
+    .loginBox
+    {
+        @include flex($display:flex,$alignitems:center,$justifycontent:center,$flexdirection:column);
+        background-color: white;
+        border-radius: 8px;
+        width: 70%;
+        height: 300px;
+    }
+}
+.left
+{
+    margin-left: 120px;
+}
+.width
+{
+    width: $width;
+}
+.button
+{
+    width: 200px;
+    border-radius: 20px;
+}
+.bottomText
+{
+    width: $width;
+    @include flex($display:flex,$alignitems:center,$justifycontent:center,$flexdirection:column);
+}

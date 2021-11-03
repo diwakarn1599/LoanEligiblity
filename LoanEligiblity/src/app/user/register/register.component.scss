@@ -1,0 +1,109 @@
+@mixin flex( $display, $alignitems, $justifycontent,$flexdirection ) { 
+    display:$display;
+    align-items: $alignitems;
+    justify-content: $justifycontent;
+    flex-direction: $flexdirection;
+}
+$width:100%;
+$Unit5px:5px;
+$unit10px:10px;
+.header
+{
+    @include flex($display:flex,$alignitems:center,$justifycontent:start,$flexdirection:row);
+    background-color: lightgray;
+    height: 65px;
+}
+.logo
+{
+    margin-left: 158px;
+    margin-top: 10px;
+    @include flex($display:flex,$alignitems:center,$justifycontent:center,$flexdirection:row);
+}
+.welcome
+{
+    @include flex($display:flex,$alignitems:center,$justifycontent:center,$flexdirection:column);
+}
+.main
+{
+    background-color: lightcyan;
+    min-height: $width;
+    @include flex($display:flex,$alignitems:center,$justifycontent:center,$flexdirection:row);
+}
+.image
+{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 7px;
+}
+h1{
+    font-family: 'Oswald', sans-serif !important;
+    font-size: 25px;
+    text-align: center;
+}
+.error
+{
+    color: red;
+    font-style: italic;
+}
+.noInput
+{
+    cursor: not-allowed;
+}
+.pointer
+{
+    cursor: pointer;
+}
+.container
+{
+    background-color: lightcyan;
+}
+.top
+{
+    margin-top: 10px;
+}
+.registerContainer
+{
+    min-height: $width;
+    @include flex($display:flex,$alignitems:center,$justifycontent:center,$flexdirection:row);
+    width: 60%;
+    .row
+    {
+        margin: 10px 25px 10px 10px;
+        width: 100%;
+    }
+    .registerBox
+    {
+        background-color: white;
+        border-radius: 8px;
+        width:100%;
+        padding: 10px;
+    }
+}
+.logoImage {
+    -webkit-animation: action 1s infinite  alternate;
+    animation: action 1s infinite  alternate;
+}
+@-webkit-keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+@keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+.buttonContainer
+{
+    width: $width;
+    margin: 5px 39px 5px 26px;
+    @include flex($display:flex,$alignitems:center,$justifycontent:space-between,$flexdirection:row);
+}
+.button
+{
+    width: 200px;
+    border-radius: 20px;
+}
+.bottomText
+{
+    width: $width;
+    @include flex($display:flex,$alignitems:center,$justifycontent:center,$flexdirection:column);
+}

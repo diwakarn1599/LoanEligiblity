@@ -1,0 +1,131 @@
+<div class="header">
+    <div class="logo">
+        <img src="./../../../assets/logo.png" class="image" />
+        <h1>FINHELP</h1>
+    </div>
+</div>
+<div class="main">
+    <div class="registerContainer">
+        <div class="col-sm-4">
+            <div class="welcome">
+                <img src="./../../../assets/logo.png" class="image logoImage" />
+                <h1>Welcome to FINHELP</h1>
+                <h2>Easiest way to get loans</h2>
+                <div class="bottomText">
+                    <p>Already a User?</p>
+                    <button type="button" routerLink="../login" class="btn btn-outline-primary button">Login</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8 top">
+            <h1>REGISTER HERE</h1>
+            <div class="registerBox">
+                <form class="row" [formGroup]="RegisterForm">
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="text" class="form-control" formControlName="FirstName" placeholder="Firstname..."
+                                required>
+                            <div class="error" *ngIf="f.FirstName.invalid && f.FirstName.touched">
+                                <small>FirstName is Invalid.</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" class="form-control" formControlName="LastName" placeholder="LastName..."
+                                required>
+                            <div class="error" *ngIf="f.LastName.invalid && f.LastName.touched">
+                                <small>LastName is Invalid.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="email" class="form-control" formControlName="Email" placeholder="Email..."
+                                required>
+                            <div class="error" *ngIf="f.Email.invalid && f.Email.touched">
+                                <small>Email is Invalid.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="password" class="form-control" formControlName="Password"
+                                placeholder="Password..."
+                                title="Use atleast one uppercase,lowercase,numbers and special characters" required>
+                            <div class="error" *ngIf="f.Password.invalid && f.Password.touched">
+                                <small>Password is Invalid.</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <input type="password" class="form-control" formControlName="ConfirmPassword"
+                                placeholder="Confirm Password..." pattern="{{ this.RegisterForm.value.Password}}" required>
+                            <div class="error" *ngIf="f.ConfirmPassword.invalid && f.ConfirmPassword.touched">
+                                <small>Not matching with Password</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" formControlName="PhoneNumber"
+                                placeholder="Phone Number..." required>
+                            <div class="error" *ngIf="f.PhoneNumber.invalid && f.PhoneNumber.touched">
+                                <small>PhoneNumber is Invalid.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" style="text-transform:uppercase"
+                                formControlName="PanNumber" maxlength="10" placeholder="PAN..." required>
+                            <div class="error" *ngIf="f.PanNumber.invalid && f.PanNumber.touched">
+                                <small>PanNumber is Invalid.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" formControlName="Address" placeholder="Address..."
+                                required>
+                            <div class="error" *ngIf="f.Address.invalid && f.Address.touched">
+                                <small>Address is Invalid.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" formControlName="City" placeholder="City..." required>
+                            <div class="error" *ngIf="f.City.invalid && f.City.touched">
+                                <small>City is Invalid.</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" formControlName="State" placeholder="State..."
+                                required>
+                            <div class="error" *ngIf="f.State.invalid && f.State.touched">
+                                <small>State is Invalid.</small>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" formControlName="ZipCode" placeholder="Zip Code..."
+                                required>
+                            <div class="error" *ngIf="f.ZipCode.invalid && f.ZipCode.touched">
+                                <small>ZipCode is Invalid.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonContainer">
+                        <div>
+                            <button type="reset" class="btn btn-outline-primary">Reset</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-outline-success" type="submit"
+                                [ngClass]="RegisterForm.invalid?'noInput':'pointer'" [disabled]="RegisterForm.invalid"
+                                (click)="Submit()">Submit</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
