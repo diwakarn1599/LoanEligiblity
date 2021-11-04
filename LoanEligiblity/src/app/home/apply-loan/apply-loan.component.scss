@@ -40,10 +40,19 @@ h1{
 .main-loanButton{
     padding-top: 2%;
     padding-right: 13%;
+    padding-bottom: 2%;
 }
 .main-body{
     padding-top: 2%;
     padding-left: 20%;
+    padding-right: 20%;
+    
+}
+.main-body-sub{
+    padding-left: 5%;
+    padding-top: 3%;
+    padding-bottom: 20px;
+    background: #ffff;
 }
 
 .user-logo{
@@ -63,3 +72,26 @@ h1{
 
 }
 
+.addperson{
+    padding: 7px 9px ;
+    color: #7F7F7F;
+}
+.person{
+    margin-left:5px ;
+    border: unset;
+    font-size: 13px;
+    color: #3c4043;
+    width:300px;
+    background-color: transparent;
+}
+.person:focus { 
+    outline: none !important;
+    border-color: white;
+ } 
+ .add{
+    border:1px solid #6D6D6D;
+}
+
+.user{
+    padding-top: 1%;
+}

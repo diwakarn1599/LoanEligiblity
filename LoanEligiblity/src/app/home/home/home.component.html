@@ -1,1 +1,39 @@
-<p>home works!</p>
+<div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="logo">
+        <img src="./../../../assets/logo.png" class="image" />
+        <h1>LOANSHARK</h1>
+    </div>
+    <div class="user-logo" fxLayout="row" fxLayoutAlign="space-around"  ngClass="log-out-icon">
+        <div  color="" matTooltip="Log Out" mat-icon-button [matMenuTriggerFor]="profile" type="button">
+            <img mat-card-avatar src="assets/emplpyee.png" class="img2" sizes="2px">
+          </div>
+    
+          <mat-menu #profile="matMenu" yPosition="below"xPosition="before" >
+    
+            <mat-card-header fxLayoutAlign="center center" >
+                <img mat-card-avatar src="assets/emplpyee.png" class="img2" style="padding-left: 35px;">
+                <div fxLayout="column" fxLayoutAlign="center center">
+                <mat-card-title class="name">{{FullName}}</mat-card-title>
+                <mat-card-subtitle class="email">{{EmailId}}</mat-card-subtitle>
+                </div>
+            </mat-card-header>
+    
+            <button class="btn btn-outline-success width loanButton" mat-button  style="margin-left: 18px;">
+              <span>Logout</span>
+            </button>
+          </mat-menu>
+    </div>
+</div>
+<div class="main" fxLayout="column" fxLayoutGap="20px">
+    <div class="main-loanButton" fxLayoutAlign="end center">
+        <button class="btn btn-outline-success width loanButton" routerLink="../home/applyLoan">APPLY LOAN</button>
+    </div>
+    <div class="main-body" fxLayout="row" fxLayoutGap="150px">
+        <div><h2>Form No.</h2></div>
+        <div><h2>Loan Name</h2></div>
+        <div><h2>Loan Amount</h2></div>
+        <div><h2>Status</h2></div>
+    </div>
+    
+    
+</div>

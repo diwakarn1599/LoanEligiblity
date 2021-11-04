@@ -1,0 +1,68 @@
+<div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="logo">
+        <img src="./../../../assets/logo.png" class="image" />
+        <h1>LOANSHARK</h1>
+    </div>
+    <div class="user-logo" fxLayout="row" fxLayoutAlign="space-around"  ngClass="log-out-icon">
+        <div  color="" matTooltip="Log Out" mat-icon-button [matMenuTriggerFor]="profile" type="button">
+            <img mat-card-avatar src="assets/emplpyee.png" class="img2" sizes="2px">
+          </div>
+    
+          <mat-menu #profile="matMenu" yPosition="below"xPosition="before" >
+    
+            <mat-card-header fxLayoutAlign="center center" >
+                <img mat-card-avatar src="assets/emplpyee.png" class="img2" style="padding-left: 35px;">
+                <div fxLayout="column" fxLayoutAlign="center center">
+                <mat-card-title class="name">{{FullName}}</mat-card-title>
+                <mat-card-subtitle class="email">{{EmailId}}</mat-card-subtitle>
+                </div>
+            </mat-card-header>
+            <div fxLayoutAlign="center center"  class="loanButton">    
+                <div class="btn btn-outline-success width " type="button" mat-button  style="margin-left: 18px;">
+                <span>Logout</span>
+                </div>
+            </div>
+          </mat-menu>
+    </div>
+</div>
+<div class="main" fxLayout="column" fxLayoutGap="20px">
+    
+    <div class="main-body" fxLayout="column">
+        <div class="main-body-sub">
+            <form>
+                <div><h1>LOAN FORM</h1></div>
+                <div fxLayoutGap="20px">
+                    <label for="Reason"><h3>Reason For Loan : </h3></label>
+                    <input placeholder="Reason" type="text" class="person" id="Reason" #Reason name="Reason">
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div><h2>Property</h2></div>
+                    <div class="main-loanButton">
+                        <div class="btn btn-outline-success width loanButton" (click)="showAddProperty();">ADD PROPERTY</div>
+                    </div>
+                </div>
+                <div class="user" fxLayout="row" fxLayoutGap="23%">
+                    <h3 fxFlex="20">Property Name</h3>
+                    <h3 fxFlex="20">Property Price</h3>
+                </div>
+                <div class="user" fxLayout="row" fxLayoutGap="23%" *ngFor="let property of propertys">
+                    <h3 fxFlex="20">{{property.Name}}</h3>
+                    <h3 fxFlex="20">P{{property.Value}}</h3>
+                    <!-- <input placeholder="Person or email to share with" type="text" class="person" [value]="property.Name" readonly>
+                    <input placeholder="Person or email to share with" type="text" class="person" [value]="property.Value" readonly> -->
+                </div>
+                <div class="user" fxLayout="row" *ngIf="addProperty" fxLayoutGap="7%">
+                    <input placeholder="property Name" type="text" class="person" id="propertyName" #propertyName name="Name">
+                    <input placeholder="property Price" type="text" class="person" id="propertyPrice" #propertyPrice name="Price">
+                    <div class="btn btn-outline-success width loanButton" (click)="AddProperty(propertyName.value,propertyPrice.value);">ADD</div>                    
+                </div>
+                <div class="user" fxLayoutAlign="end center" style="padding-bottom: 10px; padding-right: 13%; padding-top: 10%;">
+                    <div class="btn btn-outline-success width loanButton" (click)="Submit(Reason.value);">SUBMIT</div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    
+    
+</div>
