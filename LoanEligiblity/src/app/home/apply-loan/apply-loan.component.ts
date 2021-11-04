@@ -15,7 +15,8 @@ export class ApplyLoanComponent implements OnInit {
   UserData :string = JSON.parse((localStorage.getItem('loanUserDetails'))!);
   FullName:string = JSON.parse((localStorage.getItem('loanUserDetails'))!).fullName;
   EmailId:string = JSON.parse((localStorage.getItem('loanUserDetails'))!).emailId;
-  propertys : Array<{Name: string, Value: string}>=[];
+  UserId:any = JSON.parse((localStorage.getItem('loanUserDetails'))!).userId;
+  propertys : Array<{PropertyName: string, PropertyWorth: string}>=[];
 
   constructor(
     private homeService:HomeServiceService,
@@ -34,8 +35,8 @@ export class ApplyLoanComponent implements OnInit {
   AddProperty(propertyName:string,propertyPrice:string)
   {
     let parms ={
-      Name:propertyName,
-      Value:propertyPrice
+      PropertyName:propertyName,
+      PropertyWorth:propertyPrice
     }
     console.log("AddProperty");
     console.log(parms);
@@ -49,12 +50,13 @@ export class ApplyLoanComponent implements OnInit {
   {
     let params={
       Reason:Reason,
-      propertys:this.propertys
+      propertyList:this.propertys,
+      UserId:this.UserId
     }
     console.log(params);
     this.homeService.LoanForm(params).subscribe((res:any)=>
     {      
-      if(res.success == true)
+      if(res.status == true)
         {
           console.log("success");
           this.snackBar.open(`${res.message}`, '', {

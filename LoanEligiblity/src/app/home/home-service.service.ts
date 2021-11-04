@@ -12,7 +12,9 @@ export class HomeServiceService {
 
   LoanForm(data:any)
   {
-    return this.httpService.post(`${environment.baseUrl}/api/User/Register`,data);
+    console.log("homeService",data);
+    
+    return this.httpService.post(`${environment.baseUrl}/api/Form/AddToForm`,data);
   }
 
 }
