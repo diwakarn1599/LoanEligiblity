@@ -54,7 +54,12 @@ h1{
     padding-bottom: 20px;
     background: #ffff;
 }
-
+.bread
+{
+    width: 87%;
+    background-color: #d3d3d3;
+    border-radius: 7px;
+}
 .user-logo{
     border-color: white;
 }
@@ -71,17 +76,23 @@ h1{
     padding-bottom: 10%;
 
 }
-
+.btnColor:hover
+{
+    background-color: #d3d3d3;
+}
+.breadcrumb-item
+{
+    cursor: pointer;
+}
 .addperson{
     padding: 7px 9px ;
     color: #7F7F7F;
 }
 .person{
-    margin-left:5px ;
-    border: unset;
+    border: 0.001px solid #d3d3d3;
     font-size: 13px;
     color: #3c4043;
-    width:300px;
+    width:250px;
     background-color: transparent;
 }
 .person:focus { 

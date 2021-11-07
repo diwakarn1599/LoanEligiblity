@@ -3,37 +3,72 @@
         <img src="./../../../assets/logo.png" class="image" />
         <h1>LOANSHARK</h1>
     </div>
-    <div class="user-logo" fxLayout="row" fxLayoutAlign="space-around"  ngClass="log-out-icon">
-        <div  color="" matTooltip="Log Out" mat-icon-button [matMenuTriggerFor]="profile" type="button">
+    <div class="user-logo" fxLayout="row" fxLayoutAlign="space-around" ngClass="log-out-icon">
+        <div color="" matTooltip="Log Out" mat-icon-button [matMenuTriggerFor]="profile" type="button">
             <img mat-card-avatar src="assets/emplpyee.png" class="img2" sizes="2px">
-          </div>
-    
-          <mat-menu #profile="matMenu" yPosition="below"xPosition="before" >
-    
-            <mat-card-header fxLayoutAlign="center center" >
+        </div>
+
+        <mat-menu #profile="matMenu" yPosition="below" xPosition="before">
+
+            <mat-card-header fxLayoutAlign="center center">
                 <img mat-card-avatar src="assets/emplpyee.png" class="img2" style="padding-left: 35px;">
                 <div fxLayout="column" fxLayoutAlign="center center">
-                <mat-card-title class="name">{{FullName}}</mat-card-title>
-                <mat-card-subtitle class="email">{{EmailId}}</mat-card-subtitle>
+                    <mat-card-title class="name">{{FullName}}</mat-card-title>
+                    <mat-card-subtitle class="email">{{EmailId}}</mat-card-subtitle>
                 </div>
             </mat-card-header>
-    
-            <button class="btn btn-outline-success width loanButton" mat-button  style="margin-left: 18px;">
-              <span>Logout</span>
+
+            <button class="btn btn-outline-danger width loanButton" style="margin-left: 68px;" (click)="Logout()">
+                <span>Logout</span>
             </button>
-          </mat-menu>
+        </mat-menu>
     </div>
 </div>
-<div class="main" fxLayout="column" fxLayoutGap="20px">
-    <div class="main-loanButton" fxLayoutAlign="end center">
-        <button class="btn btn-outline-success width loanButton" routerLink="../home/applyLoan">APPLY LOAN</button>
+<div class="main">
+    <div class="main-container">
+        <div class="main-head">
+            <div>
+                <p><strong style="font-size: 20px;">Welcome</strong>&nbsp; &nbsp;<span
+                        style="font-size: 22px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{FullName}}</span>
+                </p>
+            </div>
+            <div class="main-loanButton">
+                <button class="btn btn-outline-success width loanButton" routerLink="../applyLoan">APPLY LOAN</button>
+            </div>
+        </div>
+        <div class="main-body">
+            <div class="main-body-subhead">
+                <h3>Your Pervious Records</h3>
+                <input type="text" class="form-control searchBar" placeholder="Search..." [(ngModel)]="searchText">
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Form No.</th>
+                        <th scope="col">Loan Name</th>
+                        <th scope="col">Approved Amount</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngIf="( forms | filter:searchText) as result">
+                        <tr *ngFor="let form of result" style="cursor: pointer;" (click)="ViewDetails(form)">
+                            <th scope="row">{{ form.formId }}</th>
+                            <td>
+                                {{form.reason}}
+
+                            </td>
+                            <td>₹. {{form.approvedAmount}}</td>
+                            <td><span [ngClass]="form.status == 'approved' ? 'success' : 'hold'">{{form.status}}</span>
+                            </td>
+                        </tr>
+                        <div *ngIf="result.length === 0" class="noData">
+                            <h1>Oops,</h1>
+                            <h1>No Data Found</h1>
+                        </div>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="main-body" fxLayout="row" fxLayoutGap="150px">
-        <div><h2>Form No.</h2></div>
-        <div><h2>Loan Name</h2></div>
-        <div><h2>Loan Amount</h2></div>
-        <div><h2>Status</h2></div>
-    </div>
-    
-    
 </div>

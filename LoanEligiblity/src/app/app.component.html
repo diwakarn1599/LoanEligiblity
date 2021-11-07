@@ -1,1 +1,9 @@
+<div class="main" *ngIf="router.url == '/'">
+    <div class="welcome">
+        <img src="../assets/logo.png" class="logo-image logoImage" />
+        <h1 class="logo-name">LOANSHARK</h1>
+        <h2 class="slogan">If money is the problem, make us the solution</h2>
+        <button type="button" routerLink="./user/register" class="btn btn btn-info button">Get Started ➡</button>
+    </div>
+</div>
 <router-outlet></router-outlet>

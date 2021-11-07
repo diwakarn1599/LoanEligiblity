@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       console.log("success");
       localStorage.setItem('loanUserDetails',JSON.stringify(res.data));
       this.LoginForm.reset();
-      this.router.navigate(['home/home']);
+      this.router.navigate(['home/dashboard']);
     });
   }
 

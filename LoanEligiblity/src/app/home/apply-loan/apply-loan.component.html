@@ -17,10 +17,10 @@
                 <mat-card-subtitle class="email">{{EmailId}}</mat-card-subtitle>
                 </div>
             </mat-card-header>
-            <div fxLayoutAlign="center center"  class="loanButton">    
-                <div class="btn btn-outline-success width " type="button" mat-button  style="margin-left: 18px;">
-                <span>Logout</span>
-                </div>
+            <div fxLayoutAlign="center center"  class="loanButton" >    
+                <button class="btn btn-outline-danger width " type="button" mat-button  style="margin-left: 18px;" (click)="Logout()">
+                    Logout
+                </button>
             </div>
           </mat-menu>
     </div>
@@ -29,32 +29,36 @@
     
     <div class="main-body" fxLayout="column">
         <div class="main-body-sub">
+            <nav class="bread" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item" (click)="navigate()">Home</li>
+                  <li class="breadcrumb-item active" aria-current="page">Apply Loan</li>
+                </ol>
+              </nav>
             <form>
-                <div><h1>LOAN FORM</h1></div>
+                <div><h2>LOAN FORM</h2></div>
                 <div fxLayoutGap="20px">
                     <label for="Reason"><h3>Reason For Loan : </h3></label>
                     <input placeholder="Reason" type="text" class="person" id="Reason" #Reason name="Reason">
                 </div>
                 <div fxLayout="row" fxLayoutAlign="space-between center">
-                    <div><h2>Property</h2></div>
+                    <div><h2>PROPERTY</h2></div>
                     <div class="main-loanButton">
-                        <div class="btn btn-outline-success width loanButton" (click)="showAddProperty();">ADD PROPERTY</div>
+                        <div class="btn btn-outline-success btnColor width loanButton" (click)="showAddProperty();">{{!addProperty?'ADD PROPERTY':'CLOSE'}}</div>
                     </div>
                 </div>
-                <div class="user" fxLayout="row" fxLayoutGap="23%">
+                <div class="user" fxLayout="row" fxLayoutGap="20%">
                     <h3 fxFlex="20">Property Name</h3>
                     <h3 fxFlex="20">Property Price</h3>
                 </div>
-                <div class="user" fxLayout="row" fxLayoutGap="23%" *ngFor="let property of propertys">
+                <div class="user" fxLayout="row" fxLayoutGap="20%" *ngFor="let property of propertys">
                     <h3 fxFlex="20">{{property.PropertyName}}</h3>
                     <h3 fxFlex="20">{{property.PropertyWorth}}</h3>
-                    <!-- <input placeholder="Person or email to share with" type="text" class="person" [value]="property.Name" readonly>
-                    <input placeholder="Person or email to share with" type="text" class="person" [value]="property.Value" readonly> -->
                 </div>
                 <div class="user" fxLayout="row" *ngIf="addProperty" fxLayoutGap="7%">
                     <input placeholder="property Name" type="text" class="person" id="propertyName" #propertyName name="Name">
                     <input placeholder="property Price" type="text" class="person" id="propertyPrice" #propertyPrice name="Price">
-                    <div class="btn btn-outline-success width loanButton" (click)="AddProperty(propertyName.value,propertyPrice.value);">ADD</div>                    
+                    <div class="btn btn-outline-success btn-sm width loanButton" (click)="AddProperty(propertyName.value,propertyPrice.value);">ADD</div>        
                 </div>
                 <div class="user" fxLayoutAlign="end center" style="padding-bottom: 10px; padding-right: 13%; padding-top: 10%;">
                     <div class="btn btn-outline-success width loanButton" (click)="Submit(Reason.value);">SUBMIT</div>
@@ -62,7 +66,9 @@
             </form>
         </div>
     </div>
-    
+    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+        <p style="color: white">Please Wait. </p>  
+    </ngx-spinner> 
     
     
 </div>

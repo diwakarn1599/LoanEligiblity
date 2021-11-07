@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserHttpService } from '../userHttp/user-http.service';
 @Component({
@@ -9,12 +10,12 @@ import { UserHttpService } from '../userHttp/user-http.service';
 })
 export class RegisterComponent implements OnInit {
   RegisterForm!:FormGroup;
-  constructor(private userService:UserHttpService, private router:Router) { }
+  constructor(private userService:UserHttpService, private router:Router,private snackBar:MatSnackBar) { }
   get f() { return this.RegisterForm.controls; }
   ngOnInit(): void {
     this.RegisterForm = new FormGroup({
-      LastName: new FormControl('',[Validators.required,Validators.pattern('^[A-Z]{1}[a-z]{2,}$')]),
-      FirstName: new FormControl('',[Validators.required,Validators.pattern('^[A-Z]{1}[a-z]{2,}$')]),
+      LastName: new FormControl('',[Validators.required,Validators.pattern('^[A-Za-z]{1,}$')]),
+      FirstName: new FormControl('',[Validators.required,Validators.pattern('^[A-Za-z]{1,}$')]),
       Email:new FormControl('',[Validators.required,Validators.email]),
       Password:new FormControl('',[Validators.required,Validators.pattern('^.*(?=.{8,})(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$')]),
       ConfirmPassword:new FormControl('',[Validators.required]),
@@ -43,7 +44,11 @@ export class RegisterComponent implements OnInit {
     console.log(params);
     
     this.userService.RegisterDetails(params).subscribe((res:any)=>{
-      console.log("succes");
+      this.snackBar.open(`Successfully Registered`, '', {
+        duration: 3000,
+        verticalPosition: 'bottom',
+        horizontalPosition: 'left'
+      });
       this.RegisterForm.reset();
       this.router.navigate(['user/login']);
     });

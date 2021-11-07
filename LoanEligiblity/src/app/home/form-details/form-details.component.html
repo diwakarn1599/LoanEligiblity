@@ -1,0 +1,51 @@
+<table class="details-table table table-striped">
+    <tr class="details-table-tr">
+        <td scope="row" class="details-table-td head">Form Id</td>
+        <td scope="row">{{data.form.formId}}</td>
+    </tr>
+    <tr class="details-table-tr">
+        <td class="details-table-td head">User Id</td>
+        <td>{{userDetails.userId}}</td>
+    </tr>
+    <tr class="details-table-tr">
+        <td class="details-table-td head">User Name</td>
+        <td>{{userDetails.fullName}}</td>
+    </tr>
+    <tr class="details-table-tr">
+        <td class="details-table-td head">Loan Name</td>
+        <td>{{data.form.reason}}</td>
+    </tr>
+    <tr class="details-table-tr">
+        <td class="details-table-td head">Status</td>
+        <td>{{data.form.status}}</td>
+    </tr>
+</table>
+<h2 style="margin-left: 15px;">List of Properties</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Property Name</th>
+            <th scope="col">Property Worth</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prop of propertyDetails;let i=index">
+            <th scope="row">{{ i+1 }}</th>
+            <td>
+                {{prop.propertyName}}
+              
+            </td>
+            <td>₹. {{prop.propertyWorth}}</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<div class="footer">
+    <h2>Total Worth</h2>
+    <p>₹. {{GetTotal()}} </p>
+</div>
+<div class="footer" *ngIf="data.form.status=='approved'">
+    <h2>Approved Amount </h2>
+    <p>₹. {{data.form.approvedAmount}}</p>
+</div>

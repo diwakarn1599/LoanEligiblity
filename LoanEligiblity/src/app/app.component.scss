@@ -1,3 +1,58 @@
 html,body{
     overflow: hidden !important;
 }
+.main
+{
+    background-image: url("../assets/back.png");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.welcome
+{
+    color: white;
+    padding: 9% 0% 0% 9%;
+}
+.logo-image
+{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 2%;
+    margin-left: 9%;
+}
+h1{
+    font-family: 'Oswald', sans-serif !important;
+    font-size: 25px;
+}
+.logo-name
+{
+    font-size: 60px;
+    font-stretch: expanded;
+    letter-spacing: 14px;
+}
+.slogan
+{
+    margin-top: 10px;
+    font-size: 19px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.logoImage {
+    -webkit-animation: action 1s infinite  alternate;
+    animation: action 1s infinite  alternate;
+}
+@-webkit-keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+@keyframes action {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+.button
+{
+    width: 300px;
+    border-radius: 26px;
+    margin-left: 3%;
+    background-color: #1949AD;
+}

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HomeServiceService } from '../home-service.service';
+import { HomeServiceService } from '../HomeService/home-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-apply-loan',
@@ -21,9 +22,13 @@ export class ApplyLoanComponent implements OnInit {
   constructor(
     private homeService:HomeServiceService,
     private router:Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private SpinnerService: NgxSpinnerService
     ) { }
-
+    navigate()
+    {
+      this.router.navigate(['home/dashboard']);
+    }
   ngOnInit(): void {
   }
 
@@ -48,6 +53,7 @@ export class ApplyLoanComponent implements OnInit {
 
   Submit(Reason:string)
   {
+    this.SpinnerService.show();
     let params={
       Reason:Reason,
       propertyList:this.propertys,
@@ -66,9 +72,15 @@ export class ApplyLoanComponent implements OnInit {
           });
 
         }
-      this.router.navigate(['home/home']);
+        this.SpinnerService.hide();
+        this.router.navigate(['home/dashboard']);
     });
 
+  }
+  Logout()
+  {
+    localStorage.removeItem('loanUserDetails');
+    this.router.navigate(['user/login']);
   }
 
 }

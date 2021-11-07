@@ -8,11 +8,16 @@ import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import { ApplyLoanComponent } from './apply-loan/apply-loan.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormDetailsComponent } from './form-details/form-details.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
     HomeComponent,
-    ApplyLoanComponent
+    ApplyLoanComponent,
+    FormDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +25,11 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     FlexLayoutModule,
     MatCardModule,
     MatMenuModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FormsModule,
+    Ng2SearchPipeModule,
+    MatDialogModule,
+    NgxSpinnerModule
   ]
 })
 export class HomeModule { }

@@ -1,0 +1,31 @@
+::ng-deep .dialog-container-custom-form-details .mat-dialog-container 
+{
+    width: 550px;
+    min-height: 370px;
+    border-radius: 7px;
+    padding: 0px 0px 0px 0px!important;
+    background-color: #E0FFFF;
+}
+.details-table
+{
+    width: 100%;
+    font-size: 16px;
+}
+.details-table-tr
+{
+    width: 100%;
+    margin:1%;
+}
+.head
+{
+    font-weight: 600;
+}
+.footer
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 55%;
+    margin-left: 60px;
+}

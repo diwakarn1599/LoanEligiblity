@@ -36,16 +36,39 @@ h1{
 {
     background-color: lightcyan;
     min-height: $width;
+    @include flex($display:flex,$alignitems:center,$justifycontent:none,$flexdirection:column);
 }
-.main-loanButton{
+.main-container
+{
+    width: 80%;
+    @include flex($display:flex,$alignitems:center,$justifycontent:none,$flexdirection:column);
+}
+.main-head
+{
+    width: 100%;
+    @include flex($display:flex,$alignitems:center,$justifycontent:space-between,$flexdirection:row);
     padding-top: 2%;
-    padding-right: 13%;
+}
+.main-body-subhead
+{
+    @include flex($display:flex,$alignitems:none,$justifycontent:center,$flexdirection:row);
+    h3{
+        width: 178px;
+        margin-top: 6px;
+    }
 }
 .main-body{
+    @include flex($display:flex,$alignitems:start,$justifycontent:space-between,$flexdirection:column);
+    width: 100%;
     padding-top: 2%;
-    padding-left: 20%;
 }
-
+.noData
+{
+    min-width: 300%;
+    min-height: 254px;
+    @include flex($display:flex,$alignitems:center,$justifycontent:center,$flexdirection:column);
+    text-align: center;
+}
 .user-logo{
     border-color: white;
 }
@@ -61,5 +84,24 @@ h1{
     padding-right: 10px;
     padding-bottom: 10%;
 
+}
+.success
+{
+    background-color: #2BA848;
+    color: white;
+    padding: 5px;
+    border-radius:9px ;
+
+}
+.hold
+{
+    background-color: red;
+    color: white;
+    padding: 5px 12px 5px 12px;
+    border-radius:9px ;
+}
+.searchBar
+{
+    width: 60%;
 }
 
